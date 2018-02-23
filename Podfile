@@ -8,7 +8,9 @@ target 'glossaryApp' do
   # Pods for glossaryApp
 
 	pod 'Firebase/Core'
-
+    
+    pod 'Firebase/Database'
+    
 	pod 'Firebase/Auth'
 
 

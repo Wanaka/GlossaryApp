@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		55C95736619A0F2EDFE7CFC1 /* Pods_glossaryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E232B7ED7764A5B1A61AEA16 /* Pods_glossaryApp.framework */; };
 		DD705261203F2547004CCD55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD705260203F2547004CCD55 /* AppDelegate.swift */; };
-		DD705263203F2547004CCD55 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD705262203F2547004CCD55 /* LoginController.swift */; };
+		DD705263203F2547004CCD55 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD705262203F2547004CCD55 /* SignupController.swift */; };
 		DD705266203F2547004CCD55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD705264203F2547004CCD55 /* Main.storyboard */; };
 		DD705268203F2547004CCD55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD705267203F2547004CCD55 /* Assets.xcassets */; };
 		DD70526B203F2547004CCD55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD705269203F2547004CCD55 /* LaunchScreen.storyboard */; };
 		DD705279203F268C004CCD55 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD705278203F268C004CCD55 /* MainController.swift */; };
 		DD70527B203F2A8C004CCD55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD70527A203F2A8B004CCD55 /* GoogleService-Info.plist */; };
+		DDB1FC412040326A00C99022 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1FC402040326A00C99022 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +23,14 @@
 		B7D22C141637B04DCA55D043 /* Pods-glossaryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glossaryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp.release.xcconfig"; sourceTree = "<group>"; };
 		DD70525D203F2547004CCD55 /* glossaryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = glossaryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD705260203F2547004CCD55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD705262203F2547004CCD55 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DD705262203F2547004CCD55 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		DD705265203F2547004CCD55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD705267203F2547004CCD55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD70526A203F2547004CCD55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD70526C203F2547004CCD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD705278203F268C004CCD55 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		DD70527A203F2A8B004CCD55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDB1FC402040326A00C99022 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		E232B7ED7764A5B1A61AEA16 /* Pods_glossaryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glossaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,8 +99,9 @@
 		DD705272203F256D004CCD55 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD705262203F2547004CCD55 /* LoginController.swift */,
+				DD705262203F2547004CCD55 /* SignupController.swift */,
 				DD705278203F268C004CCD55 /* MainController.swift */,
+				DDB1FC402040326A00C99022 /* LoginController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,12 +194,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,7 +234,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -247,7 +252,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD705263203F2547004CCD55 /* LoginController.swift in Sources */,
+				DD705263203F2547004CCD55 /* SignupController.swift in Sources */,
+				DDB1FC412040326A00C99022 /* LoginController.swift in Sources */,
 				DD705279203F268C004CCD55 /* MainController.swift in Sources */,
 				DD705261203F2547004CCD55 /* AppDelegate.swift in Sources */,
 			);
