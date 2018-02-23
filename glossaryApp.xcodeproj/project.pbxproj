@@ -16,6 +16,7 @@
 		DD705279203F268C004CCD55 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD705278203F268C004CCD55 /* MainController.swift */; };
 		DD70527B203F2A8C004CCD55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD70527A203F2A8B004CCD55 /* GoogleService-Info.plist */; };
 		DDB1FC412040326A00C99022 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1FC402040326A00C99022 /* LoginController.swift */; };
+		DDB1FC4320408B6300C99022 /* GlossaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		DD705278203F268C004CCD55 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		DD70527A203F2A8B004CCD55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDB1FC402040326A00C99022 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTableViewCell.swift; sourceTree = "<group>"; };
 		E232B7ED7764A5B1A61AEA16 /* Pods_glossaryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glossaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				DD705272203F256D004CCD55 /* Controllers */,
 				DD705260203F2547004CCD55 /* AppDelegate.swift */,
 				DD705264203F2547004CCD55 /* Main.storyboard */,
+				DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */,
 				DD705267203F2547004CCD55 /* Assets.xcassets */,
 				DD705269203F2547004CCD55 /* LaunchScreen.storyboard */,
 				DD70526C203F2547004CCD55 /* Info.plist */,
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB1FC4320408B6300C99022 /* GlossaryTableViewCell.swift in Sources */,
 				DD705263203F2547004CCD55 /* SignupController.swift in Sources */,
 				DDB1FC412040326A00C99022 /* LoginController.swift in Sources */,
 				DD705279203F268C004CCD55 /* MainController.swift in Sources */,
