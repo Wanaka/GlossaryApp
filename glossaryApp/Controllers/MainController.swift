@@ -47,15 +47,61 @@ class MainController: UIViewController,  UITableViewDelegate, UITableViewDataSou
 
             //Get languages
             ref.observe(.value, with: { (snapshot) in
-               
-                let value = snapshot.value as? NSDictionary
-                /*let firstLanguage = (value!["firstLanguage"] as? String)!
+                let array:NSArray = snapshot.children.allObjects as NSArray
+                
+                for child in array {
+                    let snap = child as! DataSnapshot
+                    if snap.value is NSDictionary {
+                        let data:NSDictionary = snap.value as! NSDictionary
+                        //print(data)
+                        if let dict = data.value(forKey: self.LANGUAGES) {
+                            let dictImage:NSDictionary = dict as!
+                            NSDictionary
+                            print(dictImage)
+                            if let image  = dictImage["firstLanguage"] {
+                                print(image)
+                            }
+                        }
+                    }
+                }
+                /*
+                 
+                 let array:NSArray = snapShot.children.allObjects as NSArray
+                 
+                 for child in array {
+                 let snap = child as! DataSnapshot
+                 if snap.value is NSDictionary {
+                 let data:NSDictionary = snap.value as! NSDictionary
+                 if let dict = data.value(forKey: "Images") {
+                 let dictImage:NSDictionary = dict as!
+                 NSDictionary
+                 if let image  = dictImage["image1"] {
+                 print(image)
+                 }
+                 }
+                 }
+                 
+                 // newImage1.append(url2)
+                 
+                 }
+                 */
+                    //    var firstName = snapshot.child("name/first").val(); // "Ada"
+
+                   /* let snap = child as! DataSnapshot
+                    let key = snap.key
+                    let value = snap.value
+                    print("key = \(key)  value = \(value!)")*/
+                    
+                
+                
+                /*
+                let firstLanguage = (value!["firstLanguage"] as? String)!
                 let secondLanguage = (value!["secondLanguage"] as? String)!
                 self.firstLanguages.append(firstLanguage)
                 self.secondLanguages.append(secondLanguage)
- */
+                 */
+                
                 //print("firstL: \(self.firstLanguages), secondL: \(self.secondLanguages)")
-                print("firstL: \(value)")
 
                 
                 DispatchQueue.main.async{
