@@ -53,13 +53,13 @@ class MainController: UIViewController,  UITableViewDelegate, UITableViewDataSou
                     let snap = child as! DataSnapshot
                     if snap.value is NSDictionary {
                         let data:NSDictionary = snap.value as! NSDictionary
-                        //print(data)
-                        if let dict = data.value(forKey: self.LANGUAGES) {
-                            let dictImage:NSDictionary = dict as!
+                        print(data)
+                        if let getLang = data.value(forKey: self.LANGUAGES) {
+                            let getLang2:NSDictionary = getLang as!
                             NSDictionary
-                            print(dictImage)
-                            if let image  = dictImage["firstLanguage"] {
-                                print(image)
+                            print(getLang2)
+                            if let lang  = getLang2["firstLanguage"] {
+                                print(lang)
                             }
                         }
                     }
