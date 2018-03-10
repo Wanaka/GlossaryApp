@@ -12,6 +12,7 @@ target 'glossaryApp' do
     pod 'Firebase/Database'
     
 	pod 'Firebase/Auth'
-
+    
+    pod 'ROGoogleTranslate'
 
 end

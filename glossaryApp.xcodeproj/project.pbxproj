@@ -17,6 +17,8 @@
 		DD70527B203F2A8C004CCD55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD70527A203F2A8B004CCD55 /* GoogleService-Info.plist */; };
 		DDB1FC412040326A00C99022 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1FC402040326A00C99022 /* LoginController.swift */; };
 		DDB1FC4320408B6300C99022 /* GlossaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */; };
+		DDE70E8F2053D77900334C4A /* CreateNewWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE70E8E2053D77900334C4A /* CreateNewWordController.swift */; };
+		DDE70E912053FC6200334C4A /* LanguageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE70E902053FC6200334C4A /* LanguageListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		DD70527A203F2A8B004CCD55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDB1FC402040326A00C99022 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTableViewCell.swift; sourceTree = "<group>"; };
+		DDE70E8E2053D77900334C4A /* CreateNewWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewWordController.swift; sourceTree = "<group>"; };
+		DDE70E902053FC6200334C4A /* LanguageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListModel.swift; sourceTree = "<group>"; };
 		E232B7ED7764A5B1A61AEA16 /* Pods_glossaryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glossaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,7 @@
 				DD705262203F2547004CCD55 /* SignupController.swift */,
 				DD705278203F268C004CCD55 /* MainController.swift */,
 				DDB1FC402040326A00C99022 /* LoginController.swift */,
+				DDE70E8E2053D77900334C4A /* CreateNewWordController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 		DD705273203F2583004CCD55 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DDE70E902053FC6200334C4A /* LanguageListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ROGoogleTranslate/ROGoogleTranslate.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -204,6 +211,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ROGoogleTranslate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -258,7 +266,9 @@
 				DDB1FC4320408B6300C99022 /* GlossaryTableViewCell.swift in Sources */,
 				DD705263203F2547004CCD55 /* SignupController.swift in Sources */,
 				DDB1FC412040326A00C99022 /* LoginController.swift in Sources */,
+				DDE70E912053FC6200334C4A /* LanguageListModel.swift in Sources */,
 				DD705279203F268C004CCD55 /* MainController.swift in Sources */,
+				DDE70E8F2053D77900334C4A /* CreateNewWordController.swift in Sources */,
 				DD705261203F2547004CCD55 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

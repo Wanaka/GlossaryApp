@@ -22,9 +22,7 @@ class MainController: UIViewController,  UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            //try! Auth.auth().signOut()
-        //DB reference to get languages
-        
+            //try! Auth.auth().signOut()        
         //Set the navigation back button to false
         navigationItem.hidesBackButton = true
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -53,7 +51,7 @@ class MainController: UIViewController,  UITableViewDelegate, UITableViewDataSou
                     let snap = child as! DataSnapshot
                     if snap.value is NSDictionary {
                         let data:NSDictionary = snap.value as! NSDictionary
-                        print(data)
+                        //print(data)
                         if let getLang = data.value(forKey: self.LANGUAGES) {
                             let getLang2:NSDictionary = getLang as!
                             NSDictionary
@@ -70,7 +68,7 @@ class MainController: UIViewController,  UITableViewDelegate, UITableViewDataSou
                 }
             }) { (error) in
                 print(error.localizedDescription)
-            }
+            }            
         }
     }
 
