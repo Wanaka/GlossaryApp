@@ -297,30 +297,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Language you want to translate from" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MFh-rD-r6T">
-                                <rect key="frame" x="30" y="133" width="132" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Language you want to translate to" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="quP-Ma-e8c">
-                                <rect key="frame" x="266" y="133" width="79" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-7s-D7Z">
+                                <rect key="frame" x="0.0" y="179" width="375" height="488"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="br0-gB-RU9" id="Ihy-Ve-v6c"/>
+                                    <outlet property="delegate" destination="br0-gB-RU9" id="SBN-7g-cYL"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zTD-9i-ksW" firstAttribute="top" secondItem="iGx-1k-vj5" secondAttribute="top" constant="38" id="2jZ-Ct-gIl"/>
+                            <constraint firstItem="6CC-7s-D7Z" firstAttribute="leading" secondItem="iGx-1k-vj5" secondAttribute="leading" id="6q0-GW-X7v"/>
                             <constraint firstItem="iGx-1k-vj5" firstAttribute="trailing" secondItem="zTD-9i-ksW" secondAttribute="trailing" constant="30" id="EBy-hF-NBG"/>
                             <constraint firstItem="zTD-9i-ksW" firstAttribute="centerX" secondItem="qSW-Ao-hdx" secondAttribute="centerX" id="Fbl-H5-6w3"/>
                             <constraint firstItem="zTD-9i-ksW" firstAttribute="leading" secondItem="iGx-1k-vj5" secondAttribute="leading" constant="30" id="PPb-tP-wDC"/>
+                            <constraint firstItem="6CC-7s-D7Z" firstAttribute="top" secondItem="zTD-9i-ksW" secondAttribute="bottom" constant="91" id="egj-g5-bf7"/>
+                            <constraint firstItem="iGx-1k-vj5" firstAttribute="bottom" secondItem="6CC-7s-D7Z" secondAttribute="bottom" id="qXQ-Cp-Prc"/>
+                            <constraint firstItem="iGx-1k-vj5" firstAttribute="trailing" secondItem="6CC-7s-D7Z" secondAttribute="trailing" id="rWR-2Z-S2t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iGx-1k-vj5"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="6CC-7s-D7Z" id="LOt-gr-XuE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvY-1l-EsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

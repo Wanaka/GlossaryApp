@@ -8,19 +8,70 @@
 
 import UIKit
 
-class CreateNewWordController: UIViewController {
+class CreateNewWordController: UIViewController, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+
+    struct Language{
+        var name = String()
+    }
+    
+    var languagesList = [Language]()
+    var l = [Language]()
+    var languagesToString = [String]()
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var languages : LanguageListModel = LanguageListModel()
+        //tableView.isHidden = true
+        let languages : LanguageListModel = LanguageListModel()
+        languagesToString = languages.getLanguages()
         
-        print(languages.getLanguages())
+        for lang in languagesToString{
+            l.append(Language(name: lang))
+        }
+        print(l)
+
+        languagesList = l
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func updateSearchResults(for searchController: UISearchController) {
+        // If we haven't typed anything into the search bar then do not filter the results
+        if searchController.searchBar.text! == "" {
+            tableView.isHidden = true
+        } else {
+            // Filter the results
+            tableView.isHidden = false
+            languagesList = l.filter { $0.name.lowercased().contains(searchController.searchBar.text!.lowercased())
+        }
+        
+        self.tableView.reloadData()
+    }
     }
     
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.languagesList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell")
+
+        cell.textLabel?.text = String(self.languagesList[indexPath.row].name)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Row \(indexPath.row) selected")
+    }
 }
