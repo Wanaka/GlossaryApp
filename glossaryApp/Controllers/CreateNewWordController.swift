@@ -8,54 +8,50 @@
 
 import UIKit
 
-class CreateNewWordController: UIViewController, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
+class CreateNewWordController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
 
     struct Language{
         var name = String()
     }
     
     var languagesList = [Language]()
-    var l = [Language]()
+    var languagesToAdd = [Language]()
     var languagesToString = [String]()
-    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.isHidden = true
+        
         let languages : LanguageListModel = LanguageListModel()
         languagesToString = languages.getLanguages()
         
         for lang in languagesToString{
-            l.append(Language(name: lang))
+            languagesToAdd.append(Language(name: lang))
         }
-        print(l)
-
-        languagesList = l
+        languagesList = languagesToAdd
         
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
-        
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        searchBar.delegate = self
+        searchBar.tintColor = UIColor.gray
+        searchBar.barTintColor = UIColor.white
+        searchBar.placeholder = "Choose a language"
 
     }
-
-    func updateSearchResults(for searchController: UISearchController) {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // If we haven't typed anything into the search bar then do not filter the results
-        if searchController.searchBar.text! == "" {
-            tableView.isHidden = true
+        searchBar.showsCancelButton = true
+        if searchBar.text! == "" {
+            languagesList = languagesToAdd
         } else {
             // Filter the results
-            tableView.isHidden = false
-            languagesList = l.filter { $0.name.lowercased().contains(searchController.searchBar.text!.lowercased())
+            languagesList = languagesToAdd.filter { $0.name.lowercased().contains(searchBar.text!.lowercased())
+            }
+            
         }
-        
-        self.tableView.reloadData()
     }
+    func updateSearchResults(for searchController: UISearchController) {
+       
     }
     
 
@@ -72,6 +68,9 @@ class CreateNewWordController: UIViewController, UISearchResultsUpdating, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row \(indexPath.row) selected")
+        print("Row \(self.languagesList[indexPath.row].name) selected")
+        searchBar.text = self.languagesList[indexPath.row].name
+        searchBar.showsCancelButton = false
+        
     }
 }

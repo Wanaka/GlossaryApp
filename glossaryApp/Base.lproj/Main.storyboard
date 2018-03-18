@@ -297,33 +297,44 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6CC-7s-D7Z">
-                                <rect key="frame" x="0.0" y="179" width="375" height="488"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="VK0-SB-F3C">
+                                <rect key="frame" x="0.0" y="138" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="gnq-SD-E6o"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="br0-gB-RU9" id="Ihy-Ve-v6c"/>
-                                    <outlet property="delegate" destination="br0-gB-RU9" id="SBN-7g-cYL"/>
+                                    <outlet property="delegate" destination="br0-gB-RU9" id="D7Y-V4-K18"/>
                                 </connections>
-                            </tableView>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zTD-9i-ksW" firstAttribute="top" secondItem="iGx-1k-vj5" secondAttribute="top" constant="38" id="2jZ-Ct-gIl"/>
-                            <constraint firstItem="6CC-7s-D7Z" firstAttribute="leading" secondItem="iGx-1k-vj5" secondAttribute="leading" id="6q0-GW-X7v"/>
+                            <constraint firstItem="VK0-SB-F3C" firstAttribute="leading" secondItem="iGx-1k-vj5" secondAttribute="leading" id="71r-u9-wp9"/>
                             <constraint firstItem="iGx-1k-vj5" firstAttribute="trailing" secondItem="zTD-9i-ksW" secondAttribute="trailing" constant="30" id="EBy-hF-NBG"/>
                             <constraint firstItem="zTD-9i-ksW" firstAttribute="centerX" secondItem="qSW-Ao-hdx" secondAttribute="centerX" id="Fbl-H5-6w3"/>
                             <constraint firstItem="zTD-9i-ksW" firstAttribute="leading" secondItem="iGx-1k-vj5" secondAttribute="leading" constant="30" id="PPb-tP-wDC"/>
-                            <constraint firstItem="6CC-7s-D7Z" firstAttribute="top" secondItem="zTD-9i-ksW" secondAttribute="bottom" constant="91" id="egj-g5-bf7"/>
-                            <constraint firstItem="iGx-1k-vj5" firstAttribute="bottom" secondItem="6CC-7s-D7Z" secondAttribute="bottom" id="qXQ-Cp-Prc"/>
-                            <constraint firstItem="iGx-1k-vj5" firstAttribute="trailing" secondItem="6CC-7s-D7Z" secondAttribute="trailing" id="rWR-2Z-S2t"/>
+                            <constraint firstItem="VK0-SB-F3C" firstAttribute="top" secondItem="zTD-9i-ksW" secondAttribute="bottom" constant="50" id="f3x-rs-zBq"/>
+                            <constraint firstItem="VK0-SB-F3C" firstAttribute="trailing" secondItem="iGx-1k-vj5" secondAttribute="trailing" id="m2g-qz-a2v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iGx-1k-vj5"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="6CC-7s-D7Z" id="LOt-gr-XuE"/>
+                        <outlet property="searchBar" destination="VK0-SB-F3C" id="rWx-XT-Shs"/>
+                        <outlet property="searchDisplayController" destination="18r-Yh-OW9" id="ZcE-AW-0EO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvY-1l-EsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="18r-Yh-OW9">
+                    <connections>
+                        <outlet property="delegate" destination="br0-gB-RU9" id="5oy-nX-oEG"/>
+                        <outlet property="searchBar" destination="VK0-SB-F3C" id="vLC-u1-e5D"/>
+                        <outlet property="searchContentsController" destination="br0-gB-RU9" id="9OX-xk-tCr"/>
+                        <outlet property="searchResultsDataSource" destination="br0-gB-RU9" id="gb9-us-UM9"/>
+                        <outlet property="searchResultsDelegate" destination="br0-gB-RU9" id="AAP-09-xCU"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1048.8" y="803.74812593703155"/>
         </scene>
