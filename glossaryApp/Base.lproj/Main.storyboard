@@ -39,7 +39,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBq-kj-eKV">
-                                <rect key="frame" x="163" y="314" width="48" height="30"/>
+                                <rect key="frame" x="163.5" y="314" width="48" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="JHd-yW-5XW"/>
                                 </constraints>
@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trW-Ye-YKh">
-                                <rect key="frame" x="150.5" y="537" width="75" height="30"/>
+                                <rect key="frame" x="150" y="537" width="75" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AxQ-m9-72D"/>
                                 </constraints>
@@ -190,7 +190,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="75" id="0gF-7z-VV7" customClass="GlossaryTableViewCell" customModule="glossaryApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="75" id="0gF-7z-VV7" customClass="GlossaryTableViewCell" customModule="glossaryApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0gF-7z-VV7" id="hRb-ec-jPK" customClass="glossaryTableViewCell" customModule="glossaryApp" customModuleProvider="target">
@@ -307,6 +307,14 @@
                                     <outlet property="delegate" destination="br0-gB-RU9" id="D7Y-V4-K18"/>
                                 </connections>
                             </searchBar>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nbv-nA-4ag">
+                                <rect key="frame" x="0.0" y="262" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="br0-gB-RU9" id="QeE-QA-TOV"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -321,8 +329,9 @@
                         <viewLayoutGuide key="safeArea" id="iGx-1k-vj5"/>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="VK0-SB-F3C" id="rWx-XT-Shs"/>
-                        <outlet property="searchDisplayController" destination="18r-Yh-OW9" id="ZcE-AW-0EO"/>
+                        <outlet property="firstSearchBar" destination="VK0-SB-F3C" id="rWx-XT-Shs"/>
+                        <outlet property="searchDisplayController" destination="HbS-y5-eYC" id="1qT-8t-qg3"/>
+                        <outlet property="secondSearchBar" destination="Nbv-nA-4ag" id="mQU-yV-xHj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvY-1l-EsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -333,6 +342,15 @@
                         <outlet property="searchContentsController" destination="br0-gB-RU9" id="9OX-xk-tCr"/>
                         <outlet property="searchResultsDataSource" destination="br0-gB-RU9" id="gb9-us-UM9"/>
                         <outlet property="searchResultsDelegate" destination="br0-gB-RU9" id="AAP-09-xCU"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="HbS-y5-eYC">
+                    <connections>
+                        <outlet property="delegate" destination="br0-gB-RU9" id="3y2-AW-RSG"/>
+                        <outlet property="searchBar" destination="Nbv-nA-4ag" id="Fxd-Fi-kOa"/>
+                        <outlet property="searchContentsController" destination="br0-gB-RU9" id="Sh4-eT-prB"/>
+                        <outlet property="searchResultsDataSource" destination="br0-gB-RU9" id="otE-4X-M7C"/>
+                        <outlet property="searchResultsDelegate" destination="br0-gB-RU9" id="iqi-G6-5ST"/>
                     </connections>
                 </searchDisplayController>
             </objects>
