@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateNewWordController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
+    var ref: DatabaseReference!
+
+    @IBOutlet weak var titleInput: UITextField!
     @IBOutlet weak var firstSearchBar: UISearchBar!
     @IBOutlet weak var secondSearchBar: UISearchBar!
     
     var whichTableView = true
     var firstLanguage : String = ""
     var secondLanguage : String = ""
+    var sendTitle : String = ""
     
     struct Language{
         var name = String()
@@ -27,7 +32,8 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ref = Database.database().reference()
+
         let languages : LanguageListModel = LanguageListModel()
         languagesToString = languages.getLanguages()
         
@@ -51,7 +57,6 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
         if(searchBar == firstSearchBar){
             whichTableView = true
             // If we haven't typed anything into the search bar then do not filter the results
-            searchBar.showsCancelButton = true
             if searchBar.text! == "" {
                 languagesList = languagesToAdd
             } else {
@@ -64,7 +69,6 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
         if(searchBar == secondSearchBar){
             whichTableView = false
             // If we haven't typed anything into the search bar then do not filter the results
-            searchBar.showsCancelButton = true
             if searchBar.text! == "" {
                 languagesList = languagesToAdd
             } else {
@@ -74,8 +78,8 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         
-    }    
-
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.languagesList.count
     }
@@ -91,18 +95,24 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(whichTableView){
             print("Row \(self.languagesList[indexPath.row].name) selected")
-            firstSearchBar.text = self.languagesList[indexPath.row].name
-            firstSearchBar.showsCancelButton = false
-            tableView.allowsSelection = true
-            firstLanguage = firstSearchBar.text!
+            firstSearchBar.text = ""
+            firstSearchBar.placeholder = self.languagesList[indexPath.row].name.capitalized
+            firstLanguage = firstSearchBar.text!.capitalized
         } else{
             print("Row \(self.languagesList[indexPath.row].name) selected")
-            secondSearchBar.text = self.languagesList[indexPath.row].name
-            secondSearchBar.showsCancelButton = false            
-            tableView.isHidden = true
-            secondLanguage = secondSearchBar.text!
-            print("second: \(secondLanguage)")
+            secondSearchBar.text = ""
+            secondSearchBar.placeholder = self.languagesList[indexPath.row].name.capitalized
+            secondLanguage = secondSearchBar.text!.capitalized
         }
+        
+    }
+    
+    
+    @IBAction func createButton(_ sender: Any) {
+        sendTitle = titleInput.text!
+        
+        self.ref.child("users").child((Auth.auth().currentUser?.uid)!).childByAutoId().child("languages").setValue(["firstLanguage": firstLanguage, "secondLanguage": secondLanguage])
+        
         
     }
 }
