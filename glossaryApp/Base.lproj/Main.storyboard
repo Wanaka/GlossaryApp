@@ -340,6 +340,7 @@
                         <viewLayoutGuide key="safeArea" id="iGx-1k-vj5"/>
                     </view>
                     <connections>
+                        <outlet property="createButtonCheck" destination="nws-7A-6ig" id="fuz-DS-wYf"/>
                         <outlet property="firstSearchBar" destination="VK0-SB-F3C" id="rWx-XT-Shs"/>
                         <outlet property="searchDisplayController" destination="HbS-y5-eYC" id="1qT-8t-qg3"/>
                         <outlet property="secondSearchBar" destination="Nbv-nA-4ag" id="mQU-yV-xHj"/>

@@ -16,7 +16,8 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var titleInput: UITextField!
     @IBOutlet weak var firstSearchBar: UISearchBar!
     @IBOutlet weak var secondSearchBar: UISearchBar!
-    
+    @IBOutlet weak var createButtonCheck: UIButton!
+
     var whichTableView = true
     var firstLanguage : String = ""
     var secondLanguage : String = ""
@@ -50,7 +51,13 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
         secondSearchBar.tintColor = UIColor.gray
         secondSearchBar.barTintColor = UIColor.white
         secondSearchBar.placeholder = "Choose a second language"
-
+        
+        // TODO: Kolla om man fyllt i allt för att enabla knappen för att spara
+        if(sendTitle.isEmpty == true || firstLanguage.isEmpty == true || secondLanguage.isEmpty == true){
+            createButtonCheck.isEnabled = false
+        } else{
+            createButtonCheck.isEnabled = true
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -97,21 +104,19 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
             print("Row \(self.languagesList[indexPath.row].name) selected")
             firstSearchBar.text = ""
             firstSearchBar.placeholder = self.languagesList[indexPath.row].name.capitalized
-            firstLanguage = firstSearchBar.text!.capitalized
+            firstLanguage = (firstSearchBar.placeholder?.capitalized)!
         } else{
             print("Row \(self.languagesList[indexPath.row].name) selected")
             secondSearchBar.text = ""
             secondSearchBar.placeholder = self.languagesList[indexPath.row].name.capitalized
-            secondLanguage = secondSearchBar.text!.capitalized
+            secondLanguage = (secondSearchBar.placeholder?.capitalized)!
         }
         
     }
     
-    
     @IBAction func createButton(_ sender: Any) {
         sendTitle = titleInput.text!
-        
-        self.ref.child("users").child((Auth.auth().currentUser?.uid)!).childByAutoId().child("languages").setValue(["firstLanguage": firstLanguage, "secondLanguage": secondLanguage])
+    self.ref.child("users").child((Auth.auth().currentUser?.uid)!).childByAutoId().child("languages").setValue(["firstLanguage": firstLanguage, "secondLanguage": secondLanguage])
         
         
     }
