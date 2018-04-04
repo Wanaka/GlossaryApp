@@ -17,7 +17,7 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var firstSearchBar: UISearchBar!
     @IBOutlet weak var secondSearchBar: UISearchBar!
     @IBOutlet weak var createButtonCheck: UIButton!
-
+    
     var whichTableView = true
     var firstLanguage : String = ""
     var secondLanguage : String = ""
@@ -51,13 +51,6 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
         secondSearchBar.tintColor = UIColor.gray
         secondSearchBar.barTintColor = UIColor.white
         secondSearchBar.placeholder = "Choose a second language"
-        
-        // TODO: Kolla om man fyllt i allt för att enabla knappen för att spara
-        if(sendTitle.isEmpty == true || firstLanguage.isEmpty == true || secondLanguage.isEmpty == true){
-            createButtonCheck.isEnabled = false
-        } else{
-            createButtonCheck.isEnabled = true
-        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -114,10 +107,14 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
-    @IBAction func createButton(_ sender: Any) {
+    @IBAction func saveGlossaries(_ sender: Any) {
         sendTitle = titleInput.text!
-    self.ref.child("users").child((Auth.auth().currentUser?.uid)!).childByAutoId().child("languages").setValue(["firstLanguage": firstLanguage, "secondLanguage": secondLanguage])
+        self.ref.child("users").child((Auth.auth().currentUser?.uid)!).childByAutoId().child("languages").setValue(["firstLanguage": firstLanguage, "secondLanguage": secondLanguage])
         
-        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

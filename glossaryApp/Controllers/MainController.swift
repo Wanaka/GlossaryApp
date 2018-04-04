@@ -88,6 +88,10 @@ class MainController: UIViewController,  UITableViewDelegate, UITableViewDataSou
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
     
+    @IBAction func createGlossary(_ sender: Any) {
+        performSegue(withIdentifier: "goGlossary", sender: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return firstLanguages.count
     }
