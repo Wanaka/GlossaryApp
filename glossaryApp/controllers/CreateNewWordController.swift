@@ -16,7 +16,6 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var titleInput: UITextField!
     @IBOutlet weak var firstSearchBar: UISearchBar!
     @IBOutlet weak var secondSearchBar: UISearchBar!
-    @IBOutlet weak var createButtonCheck: UIButton!
     
     var whichTableView = true
     var firstLanguage : String = ""
@@ -79,19 +78,19 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
         }
         
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.languagesList.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell")
 
         cell.textLabel?.text = String(self.languagesList[indexPath.row].name)
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(whichTableView){
             print("Row \(self.languagesList[indexPath.row].name) selected")
@@ -104,9 +103,9 @@ class CreateNewWordController: UIViewController, UITableViewDelegate, UITableVie
             secondSearchBar.placeholder = self.languagesList[indexPath.row].name.capitalized
             secondLanguage = (secondSearchBar.placeholder?.capitalized)!
         }
-        
+
     }
-    
+
     @IBAction func saveGlossaries(_ sender: Any) {
         sendTitle = titleInput.text!
         self.ref.child("users").child((Auth.auth().currentUser?.uid)!).childByAutoId().child("languages").setValue(["firstLanguage": firstLanguage, "secondLanguage": secondLanguage])
