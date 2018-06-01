@@ -38,6 +38,15 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
         self.navigationItem.rightBarButtonItem = addButton
         */
         
+        let addNewGroupButton = UIBarButtonItem(
+            title: "+",
+            style: .plain,
+            target: self,
+            action: #selector(addnewgroupbutton(sender:))
+        )
+        
+        self.navigationItem.rightBarButtonItem = addNewGroupButton
+        
         //check if user is signed in
         if(Auth.auth().currentUser == nil){
             performSegue(withIdentifier: "signup", sender: nil)
@@ -79,6 +88,10 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
         super.didReceiveMemoryWarning()
     }
     
+    
+    @objc func addnewgroupbutton(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "addNewGroupSegue", sender: nil)
+    }
     /*@objc func tapbutton(sender: UIBarButtonItem) {
         print("you taped logout button")
         let firebaseAuth = Auth.auth()
