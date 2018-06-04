@@ -1,8 +1,10 @@
 import UIKit
+import Firebase
 
 class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    
+    var ref: DatabaseReference!
+
 
     // UIPickerView.
     let myUIPicker = UIPickerView()
@@ -10,17 +12,30 @@ class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var saveGroup: UIButton!
     @IBOutlet weak var languagePicker: UIPickerView!
     @IBOutlet weak var firstLanguageOutlet: UIButton!
+    @IBOutlet weak var secondLanguageOutlet: UIButton!
+    @IBOutlet weak var setTitleInput: UITextField!
+    @IBOutlet weak var closePicker: UIButton!
     
-    var checkFirstLanguageButton = false
+    var checkFirstLanguageButton = true
+    var checkSecondLanguageButton = true
+    var fL = false
+    var sL = false
+    
+    var setFirstLanguage = ""
+    var setSecondLanguage = ""
+    var setTitle = ""
     
     var languagesToString = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref = Database.database().reference()
+
         languagePicker.delegate = self
         languagePicker.dataSource = self
         languagePicker.isHidden = true
+        closePicker.isHidden = true
         saveGroup.isHidden = false
         
         let languages : LanguageListModel = LanguageListModel()
@@ -29,25 +44,59 @@ class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPicke
         print("languagesList",  self.languagesToString)
     }
 
-    @IBAction func firstLanguage(_ sender: Any) {
-        print("lang check", checkFirstLanguageButton)
-        checkFirstLanguageButton != checkFirstLanguageButton
+    @IBAction func secondLanguage(_ sender: Any) {
+        print("lang check", checkSecondLanguageButton)
         
-        if(checkFirstLanguageButton){
-            checkFirstLanguageButton = false
+        if(checkSecondLanguageButton){
+            sL = true
+            fL = false
             languagePicker.isHidden = false
+            closePicker.isHidden = false
             saveGroup.isHidden = true
         } else{
-            checkFirstLanguageButton = true
+            sL = false
+            checkSecondLanguageButton = true
             languagePicker.isHidden = true
+            closePicker.isHidden = true
             saveGroup.isHidden = false
         }
+    }
+    
+    @IBAction func firstLanguage(_ sender: Any) {
+        print("lang check", checkFirstLanguageButton)
         
+        if(checkFirstLanguageButton){
+            fL = true
+            sL = false
+            languagePicker.isHidden = false
+            closePicker.isHidden = false
+            saveGroup.isHidden = true
+        } else{
+            fL = false
+            checkFirstLanguageButton = true
+            languagePicker.isHidden = true
+            closePicker.isHidden = true
+            saveGroup.isHidden = false
+        }
+    }
+    
+    @IBAction func closePicker(_ sender: Any) {
+        languagePicker.isHidden = true
+        closePicker.isHidden = true
+        saveGroup.isHidden = false
     }
     
     @IBAction func saveButtonFunction(_ sender: UIButton) {
+        if(setTitleInput.text != ""){
+            setTitle = setTitleInput.text!
+            self.ref.child("users").child((Auth.auth().currentUser?.uid)!).childByAutoId().child("languages")
+                .setValue(["title": setTitle,"firstLanguage": setFirstLanguage, "secondLanguage": setSecondLanguage])
+            self.dismiss(animated: true, completion: {})
+        }
     }
     
+    
+    @IBAction func dismissView(_ sender: Any) { self.dismiss(animated: true, completion:nil) }
     
     // data method to return the number of column shown in the picker.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -64,27 +113,24 @@ class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return languagesToString[row] as? String
         
     }
-   /*
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        
-        let label = UILabel()
-        label.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        label.textAlignment = .center
-        label.text = languagesToAdd[row] as? String
-        view.addSubview(label)
-        
-        return view
-    }
-    
-    */
  
     // delegate method called when the row was selected.
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("row: \(row)")
-        print("value: \(languagesToString[row])")
-        firstLanguageOutlet.setTitle(languagesToString[row], for: .normal)
+        if(fL){
+            sL = false
+            print("row: \(row)")
+            print("value: \(languagesToString[row])")
+            firstLanguageOutlet.setTitle(languagesToString[row], for: .normal)
+            setFirstLanguage = languagesToString[row]
+        }
+        
+        if(sL){
+            fL = false
+            print("row: \(row)")
+            print("value: \(languagesToString[row])")
+            secondLanguageOutlet.setTitle(languagesToString[row], for: .normal)
+            setSecondLanguage = languagesToString[row]
+        }
     }
     
     override func didReceiveMemoryWarning() {

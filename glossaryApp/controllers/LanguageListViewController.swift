@@ -18,14 +18,15 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
     let LANGUAGES = "languages"
     var firstLanguages = [String]()
     var secondLanguages = [String]()
+    var titleLanguages = [String]()
+
     @IBOutlet weak var languageTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //try! Auth.auth().signOut()
         //Set the navigation back button to false
-        navigationItem.hidesBackButton = true
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         //Logout button
       /* let addButton = UIBarButtonItem(
@@ -57,7 +58,10 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
             //Get languages
             ref.observe(.value, with: { (snapshot) in
                 let array:NSArray = snapshot.children.allObjects as NSArray
-                
+                self.firstLanguages.removeAll()
+                self.secondLanguages.removeAll()
+                self.titleLanguages.removeAll()
+
                 for child in array {
                     let snap = child as! DataSnapshot
                     if snap.value is NSDictionary {
@@ -69,21 +73,25 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
                             print(getLang2)
                             let firstLanguage  = getLang2["firstLanguage"]
                             let secondLanguage  = getLang2["secondLanguage"]
+                            let titleLanguage  = getLang2["title"]
+
                             self.firstLanguages.append(firstLanguage as! String)
                             self.secondLanguages.append(secondLanguage as! String)
-                            print( self.firstLanguages +  self.secondLanguages)
+                            self.titleLanguages.append(titleLanguage as! String)
+
+                            print( self.firstLanguages +  self.secondLanguages + self.titleLanguages)
                         }
                     }
                 }
-                DispatchQueue.main.async{
                     self.languageTableView.reloadData()
-                }
             }) { (error) in
                 print(error.localizedDescription)
             }
         }
     }
     
+    override func viewDidAppear(_ animated: Bool){}
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -118,6 +126,8 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! GlossaryTableViewCell
         cell.firstWord.text = firstLanguages[indexPath.row]
         cell.secondWord.text = secondLanguages[indexPath.row]
+        cell.title.text = titleLanguages[indexPath.row]
+
         return cell
     }
 }

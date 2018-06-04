@@ -11,8 +11,8 @@ import UIKit
 class GlossaryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var firstWord: UILabel!
-    
     @IBOutlet weak var secondWord: UILabel!
+    @IBOutlet weak var title: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
