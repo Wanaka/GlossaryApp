@@ -11,18 +11,20 @@ import UIKit
 class LanguageListModel: NSObject {
 
     var languages = NSLocale.isoLanguageCodes
-    let locale = NSLocale(localeIdentifier: "sv") //Default language, change this later
+    let locale = NSLocale(localeIdentifier: "en") //Default language, change this later
     var translateLanguages = [String]()
     
     struct LanguageListModel {
     }
     
     func getLanguages() -> [String]{
+        
         for language in languages {
-            var getLanguage = locale.displayName(forKey: NSLocale.Key.identifier, value: language)
+            let getLanguage = locale.displayName(forKey: NSLocale.Key.identifier, value: language)
             
             if(getLanguage == nil){
                 print("I found a nil!")
+                translateLanguages.append("")
             } else{
                 translateLanguages.append(getLanguage!)
             }
