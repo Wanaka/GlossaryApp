@@ -19,6 +19,7 @@
 		DD70526B203F2547004CCD55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD705269203F2547004CCD55 /* LaunchScreen.storyboard */; };
 		DD705279203F268C004CCD55 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD705278203F268C004CCD55 /* MainController.swift */; };
 		DD70527B203F2A8C004CCD55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD70527A203F2A8B004CCD55 /* GoogleService-Info.plist */; };
+		DDADF87320CA5F7800332F7D /* languageGroupsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDADF87220CA5F7800332F7D /* languageGroupsCollectionViewCell.swift */; };
 		DDB1FC412040326A00C99022 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1FC402040326A00C99022 /* LoginController.swift */; };
 		DDB1FC4320408B6300C99022 /* GlossaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */; };
 		DDE70E8F2053D77900334C4A /* CreateNewWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE70E8E2053D77900334C4A /* CreateNewWordController.swift */; };
@@ -42,6 +43,7 @@
 		DD70526C203F2547004CCD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD705278203F268C004CCD55 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		DD70527A203F2A8B004CCD55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDADF87220CA5F7800332F7D /* languageGroupsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageGroupsCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDB1FC402040326A00C99022 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTableViewCell.swift; sourceTree = "<group>"; };
 		DDE70E8E2053D77900334C4A /* CreateNewWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewWordController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		DD70525F203F2547004CCD55 /* glossaryApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDADF87120CA5ECB00332F7D /* cells */,
 				DD0CC7F920C6911500FEB567 /* source */,
 				DD06477120C05D56004B4B5B /* viewModel */,
 				DD06477020C05D3C004B4B5B /* repository */,
@@ -129,7 +132,6 @@
 				DD705272203F256D004CCD55 /* controllers */,
 				DD705260203F2547004CCD55 /* AppDelegate.swift */,
 				DD705264203F2547004CCD55 /* Main.storyboard */,
-				DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */,
 				DD705267203F2547004CCD55 /* Assets.xcassets */,
 				DD705269203F2547004CCD55 /* LaunchScreen.storyboard */,
 				DD70526C203F2547004CCD55 /* Info.plist */,
@@ -159,6 +161,15 @@
 				DD0CC7FE20C6D93C00FEB567 /* LanguageModel.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		DDADF87120CA5ECB00332F7D /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */,
+				DDADF87220CA5F7800332F7D /* languageGroupsCollectionViewCell.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 				DD0CC7FB20C6914A00FEB567 /* ROGoogleTranslate.swift in Sources */,
 				DD06477320C06C03004B4B5B /* GlossaryViewController.swift in Sources */,
 				DDB1FC412040326A00C99022 /* LoginController.swift in Sources */,
+				DDADF87320CA5F7800332F7D /* languageGroupsCollectionViewCell.swift in Sources */,
 				DD06477520C08861004B4B5B /* LanguageListViewController.swift in Sources */,
 				DDE70E912053FC6200334C4A /* LanguageListModel.swift in Sources */,
 				DD0CC7FF20C6D93C00FEB567 /* LanguageModel.swift in Sources */,
@@ -454,11 +466,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VR4U43Q79Z;
 				INFOPLIST_FILE = glossaryApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.jonashaag.glossaryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -470,11 +483,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VR4U43Q79Z;
 				INFOPLIST_FILE = glossaryApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.jonashaag.glossaryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
