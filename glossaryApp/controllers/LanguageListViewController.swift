@@ -19,6 +19,9 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
     var firstLanguages = [String]()
     var secondLanguages = [String]()
     var titleLanguages = [String]()
+    var keys = [String]()
+
+    var sendKeys = ""
 
     @IBOutlet weak var languageTableView: UITableView!
     
@@ -74,7 +77,10 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
                             let firstLanguage  = getLang2["firstLanguage"]
                             let secondLanguage  = getLang2["secondLanguage"]
                             let titleLanguage  = getLang2["title"]
-
+                            let key = snap.key
+                            
+                            self.keys.append(key)
+                            
                             self.firstLanguages.append(firstLanguage as! String)
                             self.secondLanguages.append(secondLanguage as! String)
                             self.titleLanguages.append(titleLanguage as! String)
@@ -112,7 +118,14 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
         
     }*/
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "goToGroup")
+        {
+            let destinationVC = segue.destination as? WordListViewController
+            destinationVC?.getKey = sendKeys
+        }
+    }
     
     @IBAction func createGlossary(_ sender: Any) {
         performSegue(withIdentifier: "goGlossary", sender: nil)
@@ -129,5 +142,10 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
         cell.title.text = titleLanguages[indexPath.row]
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        sendKeys = self.keys[indexPath.row]
+        performSegue(withIdentifier: "goToGroup", sender: nil)
     }
 }

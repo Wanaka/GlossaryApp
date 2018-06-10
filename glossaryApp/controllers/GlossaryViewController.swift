@@ -231,7 +231,7 @@ UICollectionViewDelegate, UICollectionViewDataSource {
         
         var params = ROGoogleTranslateParams()
         let translator = ROGoogleTranslate()
-        translator.apiKey = "" // Add your API Key here
+        translator.apiKey = "AIzaSyA7yKH_0jFv_rvLSvt8oCbHhk3bi9oEI0M" // Add your API Key here
         
         if(switchChecked){
             params.source = setFirstCode

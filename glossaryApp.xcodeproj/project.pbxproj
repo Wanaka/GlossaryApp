@@ -24,6 +24,7 @@
 		DDB1FC4320408B6300C99022 /* GlossaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */; };
 		DDE70E8F2053D77900334C4A /* CreateNewWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE70E8E2053D77900334C4A /* CreateNewWordController.swift */; };
 		DDE70E912053FC6200334C4A /* LanguageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE70E902053FC6200334C4A /* LanguageListModel.swift */; };
+		DDEF0C0D20CD7FA700E52557 /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF0C0C20CD7FA700E52557 /* WordListViewController.swift */; };
 		DDFAFF0520C13BE5009131ED /* AddNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFAFF0420C13BE5009131ED /* AddNewGroupViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTableViewCell.swift; sourceTree = "<group>"; };
 		DDE70E8E2053D77900334C4A /* CreateNewWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewWordController.swift; sourceTree = "<group>"; };
 		DDE70E902053FC6200334C4A /* LanguageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListModel.swift; sourceTree = "<group>"; };
+		DDEF0C0C20CD7FA700E52557 /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
 		DDFAFF0420C13BE5009131ED /* AddNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewController.swift; sourceTree = "<group>"; };
 		E232B7ED7764A5B1A61AEA16 /* Pods_glossaryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glossaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				DD06477220C06C03004B4B5B /* GlossaryViewController.swift */,
 				DD06477420C08861004B4B5B /* LanguageListViewController.swift */,
 				DDFAFF0420C13BE5009131ED /* AddNewGroupViewController.swift */,
+				DDEF0C0C20CD7FA700E52557 /* WordListViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDEF0C0D20CD7FA700E52557 /* WordListViewController.swift in Sources */,
 				DDB1FC4320408B6300C99022 /* GlossaryTableViewCell.swift in Sources */,
 				DD705263203F2547004CCD55 /* SignupController.swift in Sources */,
 				DD0CC7FB20C6914A00FEB567 /* ROGoogleTranslate.swift in Sources */,
