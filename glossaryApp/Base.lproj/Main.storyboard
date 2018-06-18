@@ -288,7 +288,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pmm-tF-QgL">
-                                <rect key="frame" x="0.0" y="54" width="375" height="626"/>
+                                <rect key="frame" x="0.0" y="54.000000000000007" width="375" height="675"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="89" id="W6y-Jo-pfz" customClass="GlossaryTableViewCell" customModule="glossaryApp" customModuleProvider="target">
@@ -414,10 +414,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="09i-3E-IFO">
-                                <rect key="frame" x="0.0" y="132" width="375" height="680"/>
+                                <rect key="frame" x="0.0" y="158" width="375" height="654"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="faY-Tc-sr7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="faY-Tc-sr7" customClass="WordListTableViewCell" customModule="glossaryApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="faY-Tc-sr7" id="SWN-Br-vtd">
@@ -457,6 +457,10 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="1xF-2z-O9b" secondAttribute="bottom" constant="9" id="u9D-9a-q09"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="firstWord" destination="1xF-2z-O9b" id="mNl-Hv-bmL"/>
+                                            <outlet property="secondWord" destination="Dbl-gz-uT4" id="QJJ-sL-UhV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -499,14 +503,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2Jk-BU-qSO" secondAttribute="trailing" constant="45" id="3en-f2-6XJ"/>
                             <constraint firstItem="2Jk-BU-qSO" firstAttribute="top" secondItem="xRY-Rc-mhO" secondAttribute="top" constant="108" id="4FQ-DV-4Eo"/>
-                            <constraint firstAttribute="bottom" secondItem="09i-3E-IFO" secondAttribute="bottom" id="8po-5C-Nqr"/>
                             <constraint firstItem="qkM-qH-bL4" firstAttribute="centerX" secondItem="xRY-Rc-mhO" secondAttribute="centerX" id="9mk-RJ-7KJ"/>
                             <constraint firstItem="qkM-qH-bL4" firstAttribute="top" secondItem="xRY-Rc-mhO" secondAttribute="top" constant="103" id="Coy-dL-a5r"/>
-                            <constraint firstItem="09i-3E-IFO" firstAttribute="trailing" secondItem="HpB-vH-9cI" secondAttribute="trailing" id="IoB-FC-Dus"/>
-                            <constraint firstItem="09i-3E-IFO" firstAttribute="top" secondItem="HpB-vH-9cI" secondAttribute="top" id="MLd-4P-WhO"/>
                             <constraint firstItem="YyU-9m-Ko4" firstAttribute="top" secondItem="xRY-Rc-mhO" secondAttribute="top" constant="108" id="PhY-cR-xyi"/>
-                            <constraint firstItem="09i-3E-IFO" firstAttribute="leading" secondItem="HpB-vH-9cI" secondAttribute="leading" id="XvF-Mx-8YD"/>
+                            <constraint firstItem="09i-3E-IFO" firstAttribute="top" secondItem="qkM-qH-bL4" secondAttribute="bottom" constant="25" id="fCs-MA-E99"/>
+                            <constraint firstItem="09i-3E-IFO" firstAttribute="trailing" secondItem="HpB-vH-9cI" secondAttribute="trailing" id="fU6-Y8-boY"/>
+                            <constraint firstAttribute="bottom" secondItem="09i-3E-IFO" secondAttribute="bottom" id="goc-iu-rTo"/>
                             <constraint firstItem="YyU-9m-Ko4" firstAttribute="leading" secondItem="xRY-Rc-mhO" secondAttribute="leading" constant="45" id="oHw-pd-shd"/>
+                            <constraint firstItem="09i-3E-IFO" firstAttribute="leading" secondItem="HpB-vH-9cI" secondAttribute="leading" id="xtb-3L-OAm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HpB-vH-9cI"/>
                     </view>

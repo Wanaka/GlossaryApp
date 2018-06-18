@@ -12,6 +12,7 @@
 		DD06477520C08861004B4B5B /* LanguageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06477420C08861004B4B5B /* LanguageListViewController.swift */; };
 		DD0CC7FB20C6914A00FEB567 /* ROGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0CC7FA20C6914A00FEB567 /* ROGoogleTranslate.swift */; };
 		DD0CC7FF20C6D93C00FEB567 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0CC7FE20C6D93C00FEB567 /* LanguageModel.swift */; };
+		DD32330D20D7D80200CA059C /* WordListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32330C20D7D80200CA059C /* WordListTableViewCell.swift */; };
 		DD705261203F2547004CCD55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD705260203F2547004CCD55 /* AppDelegate.swift */; };
 		DD705263203F2547004CCD55 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD705262203F2547004CCD55 /* SignupController.swift */; };
 		DD705266203F2547004CCD55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD705264203F2547004CCD55 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		DD06477420C08861004B4B5B /* LanguageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListViewController.swift; sourceTree = "<group>"; };
 		DD0CC7FA20C6914A00FEB567 /* ROGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROGoogleTranslate.swift; sourceTree = "<group>"; };
 		DD0CC7FE20C6D93C00FEB567 /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
+		DD32330C20D7D80200CA059C /* WordListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListTableViewCell.swift; sourceTree = "<group>"; };
 		DD70525D203F2547004CCD55 /* glossaryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = glossaryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD705260203F2547004CCD55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD705262203F2547004CCD55 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				DDB1FC4220408B6300C99022 /* GlossaryTableViewCell.swift */,
 				DDADF87220CA5F7800332F7D /* languageGroupsCollectionViewCell.swift */,
+				DD32330C20D7D80200CA059C /* WordListTableViewCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDEF0C0D20CD7FA700E52557 /* WordListViewController.swift in Sources */,
+				DD32330D20D7D80200CA059C /* WordListTableViewCell.swift in Sources */,
 				DDB1FC4320408B6300C99022 /* GlossaryTableViewCell.swift in Sources */,
 				DD705263203F2547004CCD55 /* SignupController.swift in Sources */,
 				DD0CC7FB20C6914A00FEB567 /* ROGoogleTranslate.swift in Sources */,

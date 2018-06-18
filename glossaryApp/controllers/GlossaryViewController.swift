@@ -149,7 +149,7 @@ UICollectionViewDelegate, UICollectionViewDataSource {
             
             //save to db
             let newRef = self.ref.child(getKey).child("languages").child("wordList").childByAutoId()
-                newRef.setValue([setFirstLanguage: "hej", setSecondLanguage: "hej"])
+                newRef.setValue([setFirstLanguage: translateThisText.text, setSecondLanguage: translatedText.text])
             
             self.wordKey = newRef.key
         } else{

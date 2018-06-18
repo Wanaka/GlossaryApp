@@ -22,6 +22,8 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
     var keys = [String]()
 
     var sendKeys = ""
+    var firstLanguageSend = ""
+    var secondLanguageSend = ""
 
     @IBOutlet weak var languageTableView: UITableView!
     
@@ -118,12 +120,16 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
         
     }*/
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "goToGroup")
         {
             let destinationVC = segue.destination as? WordListViewController
             destinationVC?.getKey = sendKeys
+            destinationVC?.firstLanguageSegue = self.firstLanguageSend
+            destinationVC?.secondLanguageSegue = self.secondLanguageSend
+
         }
     }
     
@@ -146,6 +152,8 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         sendKeys = self.keys[indexPath.row]
+        self.firstLanguageSend = firstLanguages[indexPath.row]
+        self.secondLanguageSend = secondLanguages[indexPath.row]
         performSegue(withIdentifier: "goToGroup", sender: nil)
     }
 }

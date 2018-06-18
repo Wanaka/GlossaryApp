@@ -18,44 +18,38 @@ class WordListViewController: UIViewController, UITableViewDelegate, UITableView
     var ref: DatabaseReference!
 
     @IBOutlet weak var wordsTableView: UITableView!
-    
+    var firstLanguageSegue = ""
+    var secondLanguageSegue = ""
     let USERS = "users"
     let LANGUAGES = "languages"
+    let WORDLIST = "wordList"
     var firstLanguages = [String]()
     var secondLanguages = [String]()
     var titleLanguages = [String]()
     var keys = [String]()
+    
     var getKey = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("key from last prev. view" + getKey)
+        print("key from last prev. view" + getKey, firstLanguageSegue, secondLanguageSegue)
         
         if(Auth.auth().currentUser == nil){
             performSegue(withIdentifier: "signup", sender: nil)
         }else{
             print("we have a user loged in!: \(String(describing: Auth.auth().currentUser!.uid))")
-            ref = Database.database().reference().child(USERS).child((Auth.auth().currentUser?.uid)!).child(getKey)
             
-            ref.observe(.value, with: { (snapshot) in
-                let array:NSArray = snapshot.children.allObjects as NSArray
-                self.firstLanguages.removeAll()
-                self.secondLanguages.removeAll()
-                self.titleLanguages.removeAll()
-                
-                for child in array {
-                    let snap = child as! DataSnapshot
-                    if snap.value is NSDictionary {
-                        let data:NSDictionary = snap.value as! NSDictionary
-                        if let getLang = data.value(forKey: self.LANGUAGES) {
-                            let getLang2:NSDictionary = getLang as!
-                            NSDictionary
-                            print("Result from DB", getLang2)
-                            //let firstLanguage  = getLang2["firstLanguage"]
-                     
-                            //elf.titleLanguages.append(titleLanguage as! String)
-                            
+            
+            ref = Database.database().reference().child(USERS).child((Auth.auth().currentUser?.uid)!).child(getKey).child(LANGUAGES).child(WORDLIST)
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                    for child in snapshots {
+                        if let postDict = child.value as? Dictionary<String, AnyObject> {
+                                print("lang \(self.firstLanguageSegue), \(self.secondLanguageSegue)")
+                                self.firstLanguages.append(postDict[self.firstLanguageSegue] as! String)
+                                self.secondLanguages.append(postDict[self.secondLanguageSegue] as! String)
                         }
                     }
                 }
@@ -64,7 +58,6 @@ class WordListViewController: UIViewController, UITableViewDelegate, UITableView
                 print(error.localizedDescription)
             }
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,15 +65,14 @@ class WordListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.firstLanguages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
-        //cell.firstWord.text = firstLanguages[indexPath.row]
-    
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! WordListTableViewCell
+        cell.firstWord.text = firstLanguages[indexPath.row]
+        cell.secondWord.text = secondLanguages[indexPath.row]
+
         return cell
-        
     }
 }
