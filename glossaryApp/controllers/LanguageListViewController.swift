@@ -30,20 +30,6 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //try! Auth.auth().signOut()
-        //Set the navigation back button to false
-        
-        //Logout button
-      /* let addButton = UIBarButtonItem(
-            title: "Logout",
-            style: .plain,
-            target: self,
-            action: #selector(tapbutton(sender:))
-        )
- 
-        self.navigationItem.rightBarButtonItem = addButton
-        */
-        
         let addNewGroupButton = UIBarButtonItem(
             title: "+",
             style: .plain,
@@ -108,19 +94,7 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
     @objc func addnewgroupbutton(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addNewGroupSegue", sender: nil)
     }
-    /*@objc func tapbutton(sender: UIBarButtonItem) {
-        print("you taped logout button")
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            performSegue(withIdentifier: "login", sender: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        
-    }*/
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "goToGroup")
@@ -129,7 +103,6 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
             destinationVC?.getKey = sendKeys
             destinationVC?.firstLanguageSegue = self.firstLanguageSend
             destinationVC?.secondLanguageSegue = self.secondLanguageSend
-
         }
     }
     
@@ -155,5 +128,18 @@ class LanguageListViewController: UIViewController,  UITableViewDelegate, UITabl
         self.firstLanguageSend = firstLanguages[indexPath.row]
         self.secondLanguageSend = secondLanguages[indexPath.row]
         performSegue(withIdentifier: "goToGroup", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        sendKeys = self.keys[indexPath.row]
+        if editingStyle == .delete {
+            ref = Database.database().reference().child(USERS).child((Auth.auth().currentUser?.uid)!)
+            self.ref.child(sendKeys).removeValue()
+            
+            firstLanguages.remove(at: indexPath.row)
+            secondLanguages.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+        
     }
 }

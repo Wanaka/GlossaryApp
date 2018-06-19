@@ -288,7 +288,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pmm-tF-QgL">
-                                <rect key="frame" x="0.0" y="54.000000000000007" width="375" height="675"/>
+                                <rect key="frame" x="0.0" y="54" width="375" height="675"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="89" id="W6y-Jo-pfz" customClass="GlossaryTableViewCell" customModule="glossaryApp" customModuleProvider="target">
@@ -490,6 +490,7 @@
                                 </state>
                                 <connections>
                                     <action selector="languageSwitch:" destination="elg-jg-9xo" eventType="touchUpInside" id="Uon-bI-85Z"/>
+                                    <action selector="languageSwitchAction:" destination="xQ8-7O-pHP" eventType="touchUpInside" id="Mx1-cD-9qy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyU-9m-Ko4">
@@ -515,6 +516,9 @@
                         <viewLayoutGuide key="safeArea" id="HpB-vH-9cI"/>
                     </view>
                     <connections>
+                        <outlet property="firstLabel" destination="YyU-9m-Ko4" id="nJ8-Lf-IZU"/>
+                        <outlet property="languageSwitch" destination="qkM-qH-bL4" id="QZR-PD-gFC"/>
+                        <outlet property="secondLabel" destination="2Jk-BU-qSO" id="X08-ir-7na"/>
                         <outlet property="wordsTableView" destination="09i-3E-IFO" id="RNm-BS-uZk"/>
                     </connections>
                 </viewController>

@@ -42,6 +42,8 @@ UICollectionViewDelegate, UICollectionViewDataSource {
     var getKey = ""
     var wordKey = ""
 
+    var sendFirstLanguageDB = ""
+    var sendSecondLanguageDB = ""
     
     var languages = LanguageModel()
     var languageCount = 0
@@ -69,7 +71,6 @@ UICollectionViewDelegate, UICollectionViewDataSource {
             performSegue(withIdentifier: "signup", sender: nil)
         }else{
             print("we have a user loged in!: \(String(describing: Auth.auth().currentUser!.uid))")
-            
         }
         
         //Logout button
@@ -80,9 +81,6 @@ UICollectionViewDelegate, UICollectionViewDataSource {
             action: #selector(tapbutton(sender:))
         )
         self.navigationItem.rightBarButtonItem = addButton
-        
-        
-        
         
         //check if user is signed in
         if(Auth.auth().currentUser == nil){
@@ -119,7 +117,6 @@ UICollectionViewDelegate, UICollectionViewDataSource {
                             self.firstLanguages.append(firstLanguage as! String)
                             self.secondLanguages.append(secondLanguage as! String)
                             self.titleLanguages.append(titleLanguage as! String)
-                            
                         }
                     }
                 }
@@ -128,7 +125,6 @@ UICollectionViewDelegate, UICollectionViewDataSource {
                 print(error.localizedDescription)
             }
         }
-        
         }
 
     override func didReceiveMemoryWarning() {
@@ -140,7 +136,6 @@ UICollectionViewDelegate, UICollectionViewDataSource {
         secondLanguageOutlet.isEnabled = true
         heartButton.isHidden = true
     }
-    
 
     @IBAction func heartButtonAction(_ sender: Any) {
         if(heartClicked){
@@ -149,31 +144,31 @@ UICollectionViewDelegate, UICollectionViewDataSource {
             
             //save to db
             let newRef = self.ref.child(getKey).child("languages").child("wordList").childByAutoId()
-                newRef.setValue([setFirstLanguage: translateThisText.text, setSecondLanguage: translatedText.text])
-            
+                newRef.setValue([sendFirstLanguageDB: translateThisText.text, sendSecondLanguageDB: translatedText.text])
             self.wordKey = newRef.key
         } else{
             heartButton.setImage(UIImage(named: "heart not filled"), for: .normal)
             heartClicked = true
-            
             self.ref.child(getKey).child("languages").child("wordList").child(self.wordKey).removeValue()
         }
         
     }
     
-    
     @IBAction func languageSwitch(_ sender: Any) {
         //should check if bool is true or false to change first language and second language
         if(switchChecked){
-            
             //change first language to second and vice verse
             firstLanguageOutlet.setTitle(setSecondLanguage, for: .normal)
             secondLanguageOutlet.setTitle(setFirstLanguage, for: .normal)
+            sendFirstLanguageDB = setSecondLanguage
+            sendSecondLanguageDB = setFirstLanguage
             switchChecked = false
         } else{
             //go back to starting point
             firstLanguageOutlet.setTitle(setFirstLanguage, for: .normal)
             secondLanguageOutlet.setTitle(setSecondLanguage, for: .normal)
+            sendFirstLanguageDB = setFirstLanguage
+            sendSecondLanguageDB = setSecondLanguage
             switchChecked = true
         }
     }
@@ -182,6 +177,7 @@ UICollectionViewDelegate, UICollectionViewDataSource {
         languagePicker.isHidden = true
         closePicker.isHidden = true
     }
+    
     @objc func tapbutton(sender: UIBarButtonItem) {
         let firebaseAuth = Auth.auth()
         do {
@@ -190,7 +186,6 @@ UICollectionViewDelegate, UICollectionViewDataSource {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        
     }
     
     @IBAction func firstLanguageAction(_ sender: Any) {
@@ -211,8 +206,6 @@ UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBAction func secondLanguageAction(_ sender: Any) {
         if(checkSecondLanguageButton){
-            //secondLanguageOutlet.setTitle(languages.getLanguages()[0], for: .normal)
-            //setSecondCode = languages.getCodes()[0]
             sL = true
             fL = false
             languagePicker.isHidden = false
@@ -306,6 +299,9 @@ UICollectionViewDelegate, UICollectionViewDataSource {
         setFirstLanguage = self.firstLanguages[indexPath.row]
         setSecondLanguage = self.secondLanguages[indexPath.row]
         
+        sendFirstLanguageDB = setFirstLanguage
+        sendSecondLanguageDB = setSecondLanguage
+        
         firstLanguageOutlet.setTitle(setFirstLanguage, for: .normal)
         secondLanguageOutlet.setTitle(setSecondLanguage, for: .normal)
         
@@ -314,5 +310,4 @@ UICollectionViewDelegate, UICollectionViewDataSource {
         
         getKey = keys[indexPath.row]
     }
-    
 }
