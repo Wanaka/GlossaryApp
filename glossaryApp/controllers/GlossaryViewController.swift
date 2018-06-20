@@ -51,7 +51,7 @@ UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = Database.database().reference().child(USERS).child((Auth.auth().currentUser?.uid)!)
+        ref = Database.database().reference()
         
         languagePicker.delegate = self
         languagePicker.dataSource = self

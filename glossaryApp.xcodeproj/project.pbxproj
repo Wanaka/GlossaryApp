@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55C95736619A0F2EDFE7CFC1 /* Pods_glossaryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E232B7ED7764A5B1A61AEA16 /* Pods_glossaryApp.framework */; };
+		15C758142A85CD9F4405CAFB /* Pods_glossaryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD685E6C0FF0D989AC7B8B1 /* Pods_glossaryApp.framework */; };
 		DD06477320C06C03004B4B5B /* GlossaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06477220C06C03004B4B5B /* GlossaryViewController.swift */; };
 		DD06477520C08861004B4B5B /* LanguageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06477420C08861004B4B5B /* LanguageListViewController.swift */; };
 		DD0CC7FB20C6914A00FEB567 /* ROGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0CC7FA20C6914A00FEB567 /* ROGoogleTranslate.swift */; };
@@ -30,8 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		72BBD9B2A81A52841C70DC9F /* Pods-glossaryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glossaryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp.debug.xcconfig"; sourceTree = "<group>"; };
-		B7D22C141637B04DCA55D043 /* Pods-glossaryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glossaryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp.release.xcconfig"; sourceTree = "<group>"; };
+		320520AE050335E7612723AF /* Pods-glossaryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glossaryApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7D09723B680DF00942825F69 /* Pods-glossaryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glossaryApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp.release.xcconfig"; sourceTree = "<group>"; };
+		7DD685E6C0FF0D989AC7B8B1 /* Pods_glossaryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glossaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD06477220C06C03004B4B5B /* GlossaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryViewController.swift; sourceTree = "<group>"; };
 		DD06477420C08861004B4B5B /* LanguageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListViewController.swift; sourceTree = "<group>"; };
 		DD0CC7FA20C6914A00FEB567 /* ROGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROGoogleTranslate.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		DDE70E902053FC6200334C4A /* LanguageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListModel.swift; sourceTree = "<group>"; };
 		DDEF0C0C20CD7FA700E52557 /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
 		DDFAFF0420C13BE5009131ED /* AddNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewController.swift; sourceTree = "<group>"; };
-		E232B7ED7764A5B1A61AEA16 /* Pods_glossaryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glossaryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,30 +61,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55C95736619A0F2EDFE7CFC1 /* Pods_glossaryApp.framework in Frameworks */,
+				15C758142A85CD9F4405CAFB /* Pods_glossaryApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14118A79298B51E98FF97539 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				72BBD9B2A81A52841C70DC9F /* Pods-glossaryApp.debug.xcconfig */,
-				B7D22C141637B04DCA55D043 /* Pods-glossaryApp.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		76320CA4856145C34842E89A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E232B7ED7764A5B1A61AEA16 /* Pods_glossaryApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		DD06477020C05D3C004B4B5B /* repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,8 +95,8 @@
 			children = (
 				DD70525F203F2547004CCD55 /* glossaryApp */,
 				DD70525E203F2547004CCD55 /* Products */,
-				14118A79298B51E98FF97539 /* Pods */,
-				76320CA4856145C34842E89A /* Frameworks */,
+				E7AF718A65047B973E670053 /* Pods */,
+				ED1A84C2D10956FECB6918CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +161,23 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		E7AF718A65047B973E670053 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				320520AE050335E7612723AF /* Pods-glossaryApp.debug.xcconfig */,
+				7D09723B680DF00942825F69 /* Pods-glossaryApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED1A84C2D10956FECB6918CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DD685E6C0FF0D989AC7B8B1 /* Pods_glossaryApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,12 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD70526F203F2547004CCD55 /* Build configuration list for PBXNativeTarget "glossaryApp" */;
 			buildPhases = (
-				79BBCF68802556CD0B0E706F /* [CP] Check Pods Manifest.lock */,
+				BCA7E84BCAFC0BE3E6607146 /* [CP] Check Pods Manifest.lock */,
 				DD705259203F2547004CCD55 /* Sources */,
 				DD70525A203F2547004CCD55 /* Frameworks */,
 				DD70525B203F2547004CCD55 /* Resources */,
-				4C47B6CB9173972E1FF43C6F /* [CP] Embed Pods Frameworks */,
-				E828BF984ABD1E24943DF960 /* [CP] Copy Pods Resources */,
+				8D7EAE36A2FE9B1D37FCE7CC /* [CP] Embed Pods Frameworks */,
+				A546479D9972A6565A57FE2E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,7 +250,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C47B6CB9173972E1FF43C6F /* [CP] Embed Pods Frameworks */ = {
+		8D7EAE36A2FE9B1D37FCE7CC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,7 +276,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		79BBCF68802556CD0B0E706F /* [CP] Check Pods Manifest.lock */ = {
+		A546479D9972A6565A57FE2E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCA7E84BCAFC0BE3E6607146 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,24 +307,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E828BF984ABD1E24943DF960 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-glossaryApp/Pods-glossaryApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -468,16 +465,19 @@
 		};
 		DD705270203F2547004CCD55 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72BBD9B2A81A52841C70DC9F /* Pods-glossaryApp.debug.xcconfig */;
+			baseConfigurationReference = 320520AE050335E7612723AF /* Pods-glossaryApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VR4U43Q79Z;
 				INFOPLIST_FILE = glossaryApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.jonashaag.glossaryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -485,16 +485,19 @@
 		};
 		DD705271203F2547004CCD55 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7D22C141637B04DCA55D043 /* Pods-glossaryApp.release.xcconfig */;
+			baseConfigurationReference = 7D09723B680DF00942825F69 /* Pods-glossaryApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VR4U43Q79Z;
 				INFOPLIST_FILE = glossaryApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.jonashaag.glossaryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
