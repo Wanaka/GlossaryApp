@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 
-class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var ref: DatabaseReference!
 
@@ -31,6 +31,8 @@ class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
         ref = Database.database().reference()
 
+        setTitleInput.delegate = self
+        
         languagePicker.delegate = self
         languagePicker.dataSource = self
         
@@ -139,5 +141,14 @@ class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.setTitleInput.resignFirstResponder()
+        return true
     }
 }

@@ -4,7 +4,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class GlossaryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
-UICollectionViewDelegate, UICollectionViewDataSource {
+UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var languageGroupCollectionView: UICollectionView!
     @IBOutlet weak var translateThisText: UITextField!
@@ -47,11 +47,14 @@ UICollectionViewDelegate, UICollectionViewDataSource {
     
     var languages = LanguageModel()
     var languageCount = 0
-    
+    var currentBackgroundColor = UIColor.white
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
+        
+        translateThisText.delegate = self
         
         languagePicker.delegate = self
         languagePicker.dataSource = self
@@ -131,11 +134,6 @@ UICollectionViewDelegate, UICollectionViewDataSource {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func mainTranslationAction(_ sender: Any) {
-        firstLanguageOutlet.isEnabled = true
-        secondLanguageOutlet.isEnabled = true
-        heartButton.isHidden = true
-    }
 
     @IBAction func heartButtonAction(_ sender: Any) {
         if(heartClicked){
@@ -280,6 +278,17 @@ UICollectionViewDelegate, UICollectionViewDataSource {
             }
     }
     
+    @IBAction func mainTranslationAction(_ sender: Any) {
+        firstLanguageOutlet.isEnabled = true
+        secondLanguageOutlet.isEnabled = true
+        heartButton.isHidden = true
+        handleBrightnessChanged()
+    }
+    
+    func handleBrightnessChanged() {
+        currentBackgroundColor = .white
+        languageGroupCollectionView.reloadData()
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.titleLanguages.count
@@ -288,6 +297,8 @@ UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! languageGroupsCollectionViewCell
         cell.title.text = self.titleLanguages[indexPath.row]
+        cell.backgroundColor = UIColor.white
+
         return cell
     }
     
@@ -309,5 +320,22 @@ UICollectionViewDelegate, UICollectionViewDataSource {
         setSecondCode = self.secondCodes[indexPath.row]
         
         getKey = keys[indexPath.row]
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = UIColor.gray
+    }    
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = currentBackgroundColor
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.translateThisText.resignFirstResponder()
+        return true
     }
 }
