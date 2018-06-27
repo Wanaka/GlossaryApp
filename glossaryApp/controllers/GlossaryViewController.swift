@@ -54,6 +54,8 @@ UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
         
         ref = Database.database().reference()
         
+        showClearButtonInEditMode()
+
         translateThisText.delegate = self
         
         languagePicker.delegate = self
@@ -130,10 +132,13 @@ UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
         }
         }
 
+    func showClearButtonInEditMode(){
+        translateThisText.clearButtonMode = .whileEditing
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
     @IBAction func heartButtonAction(_ sender: Any) {
         if(heartClicked){
@@ -150,6 +155,13 @@ UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
             self.ref.child(getKey).child("languages").child("wordList").child(self.wordKey).removeValue()
         }
         
+    }
+    
+    func toggleHeartMode(){
+        if(self.translateThisText.text == ""){
+            heartButton.setImage(UIImage(named: "heart not filled"), for: .normal)
+            heartClicked = false
+        }
     }
     
     @IBAction func languageSwitch(_ sender: Any) {
@@ -188,8 +200,6 @@ UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     
     @IBAction func firstLanguageAction(_ sender: Any) {
         if(checkFirstLanguageButton){
-            //firstLanguageOutlet.setTitle(languages.getLanguages()[0], for: .normal)
-            //setFirstCode = languages.getCodes()[0]
             fL = true
             sL = false
             languagePicker.isHidden = false
@@ -217,28 +227,28 @@ UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     }
     
     @IBAction func translateButtonAction(_ sender: Any) {
-        heartButton.setImage(UIImage(named: "heart not filled"), for: .normal)
-        heartClicked = true
-        
-        var params = ROGoogleTranslateParams()
-        let translator = ROGoogleTranslate()
-        translator.apiKey = "AIzaSyA7yKH_0jFv_rvLSvt8oCbHhk3bi9oEI0M" // Add your API Key here
-        
-        if(switchChecked){
-            params.source = setFirstCode
-            params.target = setSecondCode
-        } else{
-            params.source = setSecondCode
-            params.target = setFirstCode
-        }
-        
-        params.text = translateThisText.text ?? "The textfield is empty"
-        
-        translator.translate(params: params) { (result) in
-            DispatchQueue.main.async {
-                self.translatedText.text = "\(result)"
+            heartButton.setImage(UIImage(named: "heart not filled"), for: .normal)
+            heartClicked = true
+            
+            var params = ROGoogleTranslateParams()
+            let translator = ROGoogleTranslate()
+            translator.apiKey = "AIzaSyA7yKH_0jFv_rvLSvt8oCbHhk3bi9oEI0M" // Add your API Key here
+            
+            if(switchChecked){
+                params.source = setFirstCode
+                params.target = setSecondCode
+            } else{
+                params.source = setSecondCode
+                params.target = setFirstCode
             }
-        }
+            
+            params.text = translateThisText.text ?? "The textfield is empty"
+            
+            translator.translate(params: params) { (result) in
+                DispatchQueue.main.async {
+                    self.translatedText.text = "\(result)"
+                }
+            }
     }
     
     // data method to return the number of column shown in the picker.
@@ -331,10 +341,12 @@ UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        toggleHeartMode()
         self.view.endEditing(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        toggleHeartMode()
         self.translateThisText.resignFirstResponder()
         return true
     }

@@ -44,6 +44,11 @@ class AddNewGroupViewController: UIViewController, UIPickerViewDelegate, UIPicke
 
         print("amount of lang", languageCount)
 
+        showClearButtonInEditMode()
+    }
+    
+    func showClearButtonInEditMode(){
+        setTitleInput.clearButtonMode = .whileEditing
     }
 
     @IBAction func secondLanguage(_ sender: Any) {
