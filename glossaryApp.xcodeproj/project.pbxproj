@@ -27,6 +27,8 @@
 		DDE70E912053FC6200334C4A /* LanguageListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE70E902053FC6200334C4A /* LanguageListModel.swift */; };
 		DDEF0C0D20CD7FA700E52557 /* WordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF0C0C20CD7FA700E52557 /* WordListViewController.swift */; };
 		DDFAFF0520C13BE5009131ED /* AddNewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFAFF0420C13BE5009131ED /* AddNewGroupViewController.swift */; };
+		DDFB316020EB576300B2CE6A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFB315F20EB576300B2CE6A /* Colors.swift */; };
+		DDFB316220EB592100B2CE6A /* BlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFB316120EB592100B2CE6A /* BlueButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		DDE70E902053FC6200334C4A /* LanguageListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListModel.swift; sourceTree = "<group>"; };
 		DDEF0C0C20CD7FA700E52557 /* WordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewController.swift; sourceTree = "<group>"; };
 		DDFAFF0420C13BE5009131ED /* AddNewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupViewController.swift; sourceTree = "<group>"; };
+		DDFB315F20EB576300B2CE6A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DDFB316120EB592100B2CE6A /* BlueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,20 +72,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DD06477020C05D3C004B4B5B /* repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = repository;
-			sourceTree = "<group>";
-		};
-		DD06477120C05D56004B4B5B /* viewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = viewModel;
-			sourceTree = "<group>";
-		};
 		DD0CC7F920C6911500FEB567 /* source */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,8 +103,6 @@
 			children = (
 				DDADF87120CA5ECB00332F7D /* cells */,
 				DD0CC7F920C6911500FEB567 /* source */,
-				DD06477120C05D56004B4B5B /* viewModel */,
-				DD06477020C05D3C004B4B5B /* repository */,
 				DD705273203F2583004CCD55 /* models */,
 				DD705272203F256D004CCD55 /* controllers */,
 				DD705260203F2547004CCD55 /* AppDelegate.swift */,
@@ -147,6 +135,8 @@
 			children = (
 				DDE70E902053FC6200334C4A /* LanguageListModel.swift */,
 				DD0CC7FE20C6D93C00FEB567 /* LanguageModel.swift */,
+				DDFB315F20EB576300B2CE6A /* Colors.swift */,
+				DDFB316120EB592100B2CE6A /* BlueButton.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -325,8 +315,10 @@
 				DDB1FC412040326A00C99022 /* LoginController.swift in Sources */,
 				DDADF87320CA5F7800332F7D /* languageGroupsCollectionViewCell.swift in Sources */,
 				DD06477520C08861004B4B5B /* LanguageListViewController.swift in Sources */,
+				DDFB316020EB576300B2CE6A /* Colors.swift in Sources */,
 				DDE70E912053FC6200334C4A /* LanguageListModel.swift in Sources */,
 				DD0CC7FF20C6D93C00FEB567 /* LanguageModel.swift in Sources */,
+				DDFB316220EB592100B2CE6A /* BlueButton.swift in Sources */,
 				DD705279203F268C004CCD55 /* MainController.swift in Sources */,
 				DDE70E8F2053D77900334C4A /* CreateNewWordController.swift in Sources */,
 				DD705261203F2547004CCD55 /* AppDelegate.swift in Sources */,

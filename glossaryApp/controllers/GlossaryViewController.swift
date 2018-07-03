@@ -6,6 +6,7 @@ import FirebaseAuth
 class GlossaryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
 UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var switchButtonOutlet: UIButton!
     @IBOutlet weak var languageGroupCollectionView: UICollectionView!
     @IBOutlet weak var translateThisText: UITextField!
     @IBOutlet weak var firstLanguageOutlet: UIButton!
@@ -51,7 +52,11 @@ UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        buttonDesigned(button: firstLanguageOutlet)
+        buttonDesigned(button: secondLanguageOutlet)
+        buttonDesigned(button: switchButtonOutlet)
+        switchButtonOutlet.setTitleColor(UIColor( red: 0, green: 128, blue: 175, alpha: 1.0 ), for: .normal)
+
         ref = Database.database().reference()
         
         showClearButtonInEditMode()
@@ -132,6 +137,15 @@ UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
         }
         }
 
+    func buttonDesigned(button : UIButton){
+        let blueColor : UIColor = UIColor( red: 0, green: 128, blue: 175, alpha: 1.0 )
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = UIColor.white
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = blueColor.cgColor
+    }
+    
     func showClearButtonInEditMode(){
         translateThisText.clearButtonMode = .whileEditing
     }
